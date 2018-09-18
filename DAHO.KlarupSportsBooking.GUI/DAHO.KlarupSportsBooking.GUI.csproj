@@ -34,7 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,6 +99,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +112,10 @@
     <ProjectReference Include="..\DAHO.KlarupSportsBooking.BusinessLayer\DAHO.KlarupSportsBooking.BusinessLayer.csproj">
       <Project>{a89a52d2-d7ca-4aa2-9147-b30ac69b7832}</Project>
       <Name>DAHO.KlarupSportsBooking.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAHO.KlarupSportsBooking.DateAccessLayer\DAHO.KlarupSportsBooking.DateAccessLayer.csproj">
+      <Project>{74AA82CC-E17E-488A-9D7F-13B3BF0A5469}</Project>
+      <Name>DAHO.KlarupSportsBooking.DateAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

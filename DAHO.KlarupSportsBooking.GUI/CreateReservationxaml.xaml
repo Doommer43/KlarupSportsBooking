@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAHO.KlarupSportsBooking.GUI"
         mc:Ignorable="d"
-        Title="CreateReservationxaml" Height="366.705" Width="315.463">
+        Title="CreateReservationxaml" Height="390.068" Width="330.7">
     <Grid>
-        <ComboBox x:Name="ComboBoxActivities" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboBoxActivities" DisplayMemberPath="ActivitiName" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="TBlockActivities" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Vælg aktivitets type:" VerticalAlignment="Top"/>
-        <CheckBox x:Name="ChkBoxIsNotSingleEvent" Content="Mere end én reservation" HorizontalAlignment="Left" Margin="152,35,0,0" VerticalAlignment="Top" Checked="ChkBoxIsNotSingleEvent_Checked"/>
+        <CheckBox x:Name="ChkBoxIsNotSingleEvent" Content="Mere end én reservation" HorizontalAlignment="Left" Margin="152,35,0,0" VerticalAlignment="Top" Checked="ChkBoxIsNotSingleEvent_Checked" Unchecked="ChkBoxIsNotSingleEvent_Unchecked"/>
         <DatePicker x:Name="DTPickerStartDate" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday"/>
         <DatePicker x:Name="DTPickerEndDate" HorizontalAlignment="Left" Margin="152,91,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday"/>
-        <DatePicker x:Name="DTPickerDateOfReservation" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday"/>
+        <DatePicker x:Name="DTPickerDateOfReservation" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" SelectedDateChanged="DTPickerDateOfReservation_SelectedDateChanged"/>
         <ComboBox x:Name="ComboBoxStartTime" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboBoxEndTime" HorizontalAlignment="Left" Margin="152,219,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="TboxReservationDate" HorizontalAlignment="Left" Margin="10,136,0,0" TextWrapping="Wrap" Text="Reservationsdag:" VerticalAlignment="Top"/>
@@ -20,9 +20,9 @@
         <TextBlock x:Name="TboxEndDate" HorizontalAlignment="Left" Margin="152,71,0,0" TextWrapping="Wrap" Text="Slut dato:" VerticalAlignment="Top"/>
         <TextBlock x:Name="TBoxStartTime" HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" Text="Start tid:" VerticalAlignment="Top"/>
         <TextBlock x:Name="TBoxEndTime" HorizontalAlignment="Left" Margin="152,199,0,0" TextWrapping="Wrap" Text="Slut tid:" VerticalAlignment="Top"/>
-        <Button x:Name="BtnAddReservation" Content="Tilføj" HorizontalAlignment="Left" Margin="197,257,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="BtnDone" Content="Færdig" HorizontalAlignment="Left" Margin="227,309,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="BtnCancel" Content="Afbryd" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="BtnAddReservation" Content="Tilføj" HorizontalAlignment="Left" Margin="197,257,0,0" VerticalAlignment="Top" Width="75" Click="BtnAddReservation_Click"/>
+        <Button x:Name="BtnDone" Content="Færdig" HorizontalAlignment="Left" Margin="227,309,0,0" VerticalAlignment="Top" Width="75" Click="BtnDone_Click"/>
+        <Button x:Name="BtnCancel" Content="Afbryd" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
 
     </Grid>
 </Window>
