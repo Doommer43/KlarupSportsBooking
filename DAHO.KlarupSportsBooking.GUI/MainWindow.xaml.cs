@@ -22,18 +22,24 @@ namespace DAHO.KlarupSportsBooking.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        OpenTimeHandler OpenTimeHandler = new OpenTimeHandler();
+        AdminHandler adminHandler = new AdminHandler();
+        private Admin currentAdmin;
         public MainWindow()
         {            
             InitializeComponent();
-            //DateTime s = new DateTime(1900, 1, 1, 8, 0, 0);
-            //DateTime e = new DateTime(1900, 1, 1, 22, 0, 0);
-            //DateTime ws = new DateTime(1900, 1, 1, 9, 0, 0);
-            //DateTime we = new DateTime(1900, 1, 1, 21, 0, 0);
-            //OpenTime time = new OpenTime() { WeekdayStart = s, WeekdayEnd = e, WeekendStart = ws, WeekendEnd = we };
-            //OpenTimeHandler.Add(time);
             CreateReservationxaml cr = new CreateReservationxaml();
             cr.ShowDialog();
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            if(loginWindow.ShowDialog() == true)
+            {
+                currentAdmin = adminHandler.Login(loginWindow.TBoxUsername.Text, loginWindow.TBoxPassword.Text);
+                if(currentAdmin != null)
+                TBlockCurrentUser.Text = currentAdmin.FirstName + " " + currentAdmin.LastName;
+            }
         }
     }
 }
