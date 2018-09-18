@@ -23,23 +23,39 @@ namespace DAHO.KlarupSportsBooking.GUI
     public partial class MainWindow : Window
     {
         AdminHandler adminHandler = new AdminHandler();
+        ReservationHandler ReservationHandler = new ReservationHandler();
         private Admin currentAdmin;
         public MainWindow()
         {            
             InitializeComponent();
             CreateReservationxaml cr = new CreateReservationxaml();
             cr.ShowDialog();
+            DGReservations.ItemsSource = ReservationHandler.GetAllReservations();
+            DGReservations.AutoGenerateColumns = false;
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
-            if(loginWindow.ShowDialog() == true)
+            if (loginWindow.ShowDialog() == true)
             {
                 currentAdmin = adminHandler.Login(loginWindow.TBoxUsername.Text, loginWindow.TBoxPassword.Text);
-                if(currentAdmin != null)
-                TBlockCurrentUser.Text = currentAdmin.FirstName + " " + currentAdmin.LastName;
+                if (currentAdmin != null)
+                {
+                    TBlockCurrentUser.Text = currentAdmin.FirstName + " " + currentAdmin.LastName;
+                    TabAdmin.IsEnabled = true;
+                }
+                else
+                {
+                    TabAdmin.IsEnabled = false;
+                    TabUnion.IsSelected = true;
+                }
             }
+        }
+
+        private void DGReservations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

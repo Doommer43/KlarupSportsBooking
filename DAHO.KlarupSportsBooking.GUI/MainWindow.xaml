@@ -9,5 +9,16 @@
     <Grid>
         <Button x:Name="BtnLogin" Content="Log ind" HorizontalAlignment="Left" Margin="31,57,0,0" VerticalAlignment="Top" Width="75" Click="BtnLogin_Click"/>
         <TextBlock x:Name="TBlockCurrentUser" HorizontalAlignment="Left" Margin="31,36,0,0" TextWrapping="Wrap" Text="Ikke logget ind" VerticalAlignment="Top" Width="116"/>
+        <TabControl HorizontalAlignment="Left" Height="420" Margin="126,0,0,0" VerticalAlignment="Top" Width="658">
+            <TabItem x:Name="TabUnion" Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem x:Name="TabAdmin" Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="DGReservations" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="375" Margin="254,29,0,0" SelectionChanged="DGReservations_SelectionChanged"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

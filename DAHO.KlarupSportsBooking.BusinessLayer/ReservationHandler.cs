@@ -9,6 +9,10 @@ namespace DAHO.KlarupSportsBooking.BusinessLayer
 {
     public class ReservationHandler : BaseHandler
     {
+        public List<Reservation> GetAllReservations()
+        {
+            return Model.Reservations.ToList();
+        }
         public bool Add(Reservation res)
         {
             Model.Reservations.Add(res);
