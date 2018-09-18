@@ -10,21 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DAHO.KlarupSportsBooking.GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CreateReservationxaml.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateReservationxaml : Window
     {
-        public MainWindow()
+        public CreateReservationxaml()
         {
             InitializeComponent();
-            CreateReservationxaml cr = new CreateReservationxaml();
-            cr.ShowDialog();
+            Title = "Klarup Halbooking";
+            DTPickerStartDate.IsEnabled = false;
+            DTPickerEndDate.IsEnabled = false;
+        }
+
+        private void ChkBoxIsNotSingleEvent_Checked(object sender, RoutedEventArgs e)
+        {
+            DTPickerStartDate.IsEnabled = true;
+            DTPickerEndDate.IsEnabled = true;
         }
     }
 }
