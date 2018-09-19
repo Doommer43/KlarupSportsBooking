@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAHO.KlarupSportsBooking.Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAHO.KlarupSportsBooking.Server", "DAHO.KlarupSportsBooking.Server\DAHO.KlarupSportsBooking.Server.csproj", "{C2142379-15D3-47CB-8AF2-3B5F8B4D735A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAHO.KlarupSportsBooking.BusinessLayerTests", "DAHO.KlarupSportsBooking.BusinessLayerTests\DAHO.KlarupSportsBooking.BusinessLayerTests.csproj", "{B5A8F35E-C4F0-4513-BA24-30479B41D0C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C2142379-15D3-47CB-8AF2-3B5F8B4D735A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2142379-15D3-47CB-8AF2-3B5F8B4D735A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2142379-15D3-47CB-8AF2-3B5F8B4D735A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5A8F35E-C4F0-4513-BA24-30479B41D0C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A8F35E-C4F0-4513-BA24-30479B41D0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A8F35E-C4F0-4513-BA24-30479B41D0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A8F35E-C4F0-4513-BA24-30479B41D0C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

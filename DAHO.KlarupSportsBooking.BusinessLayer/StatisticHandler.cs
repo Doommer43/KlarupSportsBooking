@@ -13,7 +13,5 @@ namespace DAHO.KlarupSportsBooking.BusinessLayer
         {
             return Model.Reservations.Where(r => r.Accepted == true).ToList();
         }
-
-
     }
 }
