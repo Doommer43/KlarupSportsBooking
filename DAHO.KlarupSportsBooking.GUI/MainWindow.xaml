@@ -11,7 +11,13 @@
         <TextBlock x:Name="TBlockCurrentUser" HorizontalAlignment="Left" Margin="31,36,0,0" TextWrapping="Wrap" Text="Ikke logget ind" VerticalAlignment="Top" Width="116"/>
         <TabControl HorizontalAlignment="Left" Height="420" Margin="126,0,0,0" VerticalAlignment="Top" Width="658">
             <TabItem x:Name="TabUnion" Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22*"/>
+                        <ColumnDefinition Width="141*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnNewReservation" Content="Ny reservation" HorizontalAlignment="Left" Margin="24,33,0,0" VerticalAlignment="Top" Width="84" Click="BtnNewReservation_Click" Grid.ColumnSpan="2"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="TabAdmin" Header="TabItem">
                 <Grid Background="#FFE5E5E5">

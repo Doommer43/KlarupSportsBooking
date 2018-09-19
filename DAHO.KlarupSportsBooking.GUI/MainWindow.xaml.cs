@@ -28,8 +28,6 @@ namespace DAHO.KlarupSportsBooking.GUI
         public MainWindow()
         {            
             InitializeComponent();
-            CreateReservationxaml cr = new CreateReservationxaml();
-            cr.ShowDialog();
             DGReservations.ItemsSource = ReservationHandler.GetAllReservations();
             DGReservations.AutoGenerateColumns = false;
         }
@@ -56,6 +54,12 @@ namespace DAHO.KlarupSportsBooking.GUI
         private void DGReservations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BtnNewReservation_Click(object sender, RoutedEventArgs e)
+        {
+            CreateReservationxaml cr = new CreateReservationxaml();
+            cr.ShowDialog();
         }
     }
 }

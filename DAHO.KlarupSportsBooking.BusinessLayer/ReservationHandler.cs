@@ -18,5 +18,12 @@ namespace DAHO.KlarupSportsBooking.BusinessLayer
             Model.Reservations.Add(res);
             return SaveChanges();
         }
+
+        public bool Update(Reservation res)
+        {
+            var result = Model.Reservations.Find(res.Id);
+            result = res;
+            return SaveChanges();
+        }
     }
 }
