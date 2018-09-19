@@ -16,13 +16,13 @@ namespace DAHO.KlarupSportsBooking.DateAccessLayer.EF
         }
 
         public int Id { get; set; }
-
+        [Required(ErrorMessage = "Reservation must have an activity type.")]
         public int ActivityId { get; set; }
 
         public bool Accepted { get; set; }
-
+        [Required(ErrorMessage = "Reservation must have a start date.")]
         public DateTime StartDate { get; set; }
-
+        [Required(ErrorMessage = "Reservation must have an end date.")]
         public DateTime EndDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

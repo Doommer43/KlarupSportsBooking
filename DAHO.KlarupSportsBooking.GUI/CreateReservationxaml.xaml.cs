@@ -75,22 +75,28 @@ namespace DAHO.KlarupSportsBooking.GUI
 
         private void BtnDone_Click(object sender, RoutedEventArgs e)
         {
-            res.StartDate = (DateTime)DTPickerStartDate.SelectedDate;
-            res.EndDate = (DateTime)DTPickerEndDate.SelectedDate;
-            Activity p = (Activity)ComboBoxActivities.SelectedItem;
-            Activity a = new Activity() { Id = p.Id, ActivitiName = p.ActivitiName, RequiredSpace = p.RequiredSpace, Reservations = p.Reservations };
-            res.Activity = a;
-            res.Accepted = false;
+            if (DTPickerStartDate.SelectedDate != null && DTPickerEndDate.SelectedDate != null)
+            {
+                res.StartDate = (DateTime)DTPickerStartDate.SelectedDate;
+                res.EndDate = (DateTime)DTPickerEndDate.SelectedDate;
+                Activity p = (Activity)ComboBoxActivities.SelectedItem;
+                Activity a = new Activity() { Id = p.Id, ActivitiName = p.ActivitiName, RequiredSpace = p.RequiredSpace, Reservations = p.Reservations };
+                res.Activity = a;
+                res.Accepted = false;
 
-            if (reservationHandler.Add(res))
+                if (reservationHandler.Add(res))
+                {
+                    MessageBox.Show("Reservation registreret");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Reservation fejlet");
+                }
+            } else
             {
-                MessageBox.Show("Reservation registreret");
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Reservation fejlet");
-            }
+                MessageBox.Show("Alle felter skal være udfyldt");
+            }                
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
