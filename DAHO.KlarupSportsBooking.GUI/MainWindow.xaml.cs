@@ -28,6 +28,7 @@ namespace DAHO.KlarupSportsBooking.GUI
         public MainWindow()
         {            
             InitializeComponent();
+            Title = "Klarup HalBooking hovedvindue";
             ReservationHandler ReservationHandler = new ReservationHandler();
             DGReservations.ItemsSource = ReservationHandler.GetAllReservations();
             Program p = new Program();
