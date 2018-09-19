@@ -124,6 +124,10 @@
       <Project>{74AA82CC-E17E-488A-9D7F-13B3BF0A5469}</Project>
       <Name>DAHO.KlarupSportsBooking.DateAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAHO.KlarupSportsBooking.Server\DAHO.KlarupSportsBooking.Server.csproj">
+      <Project>{c2142379-15d3-47cb-8af2-3b5f8b4d735a}</Project>
+      <Name>DAHO.KlarupSportsBooking.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

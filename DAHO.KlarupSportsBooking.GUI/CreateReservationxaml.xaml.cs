@@ -82,12 +82,15 @@ namespace DAHO.KlarupSportsBooking.GUI
             res.Activity = a;
             res.Accepted = false;
 
-            if(reservationHandler.Add(res))
+            if (reservationHandler.Add(res))
             {
                 MessageBox.Show("Reservation registreret");
                 Close();
             }
-            MessageBox.Show("Reservation fejlet");
+            else
+            {
+                MessageBox.Show("Reservation fejlet");
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)

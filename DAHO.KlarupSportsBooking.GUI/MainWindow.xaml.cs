@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DAHO.KlarupSportsBooking.Server;
 
 namespace DAHO.KlarupSportsBooking.GUI
 {
@@ -22,44 +23,87 @@ namespace DAHO.KlarupSportsBooking.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        AdminHandler adminHandler = new AdminHandler();
-        ReservationHandler ReservationHandler = new ReservationHandler();
         private Admin currentAdmin;
+        private Union currentUnion;
         public MainWindow()
         {            
             InitializeComponent();
+            ReservationHandler ReservationHandler = new ReservationHandler();
             DGReservations.ItemsSource = ReservationHandler.GetAllReservations();
-            DGReservations.AutoGenerateColumns = false;
+            Program p = new Program();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            AdminHandler adminHandler = new AdminHandler();
+            UnionHandler unionHandler = new UnionHandler();
+
             LoginWindow loginWindow = new LoginWindow();
             if (loginWindow.ShowDialog() == true)
             {
-                currentAdmin = adminHandler.Login(loginWindow.TBoxUsername.Text, loginWindow.TBoxPassword.Text);
-                if (currentAdmin != null)
+                try
                 {
-                    TBlockCurrentUser.Text = currentAdmin.FirstName + " " + currentAdmin.LastName;
-                    TabAdmin.IsEnabled = true;
+                    currentAdmin = adminHandler.Login(loginWindow.TBoxUsername.Text, loginWindow.TBoxPassword.Text);
+                    currentUnion = unionHandler.Login(loginWindow.TBoxUsername.Text, loginWindow.TBoxPassword.Text);
+
+                    if (currentAdmin != null || currentUnion != null)
+                    {
+                        if (currentAdmin != null)
+                        {
+                            TBlockCurrentUser.Text = currentAdmin.FirstName + " " + currentAdmin.LastName;
+                            TabAdmin.IsEnabled = true;
+                        }
+                        else if (currentUnion != null)
+                        {
+                            TBlockCurrentUser.Text = currentUnion.Email;
+                            TabAdmin.IsEnabled = false;
+                        }
+                        else
+                        {
+                            TabAdmin.IsEnabled = false;
+                            TabUnion.IsSelected = true;
+                        }
+                    }
+                    else
+                    {
+                        TBlockCurrentUser.Text = "Ingen bruger fundet.";
+                    }
                 }
-                else
+                catch (ArgumentException error)
                 {
-                    TabAdmin.IsEnabled = false;
-                    TabUnion.IsSelected = true;
+                    MessageBox.Show(error.Message, error.GetType().ToString());
                 }
             }
         }
 
         private void DGReservations_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Reservation res = (Reservation)DGReservations.SelectedItem;
+            if (res.Accepted == false)
+            {
+                BtnAcceptReservation.IsEnabled = true;
+            }
+            else
+            BtnAcceptReservation.IsEnabled = false;
         }
 
         private void BtnNewReservation_Click(object sender, RoutedEventArgs e)
         {
             CreateReservationxaml cr = new CreateReservationxaml();
             cr.ShowDialog();
+        }
+
+        private void BtnAcceptReservation_Click(object sender, RoutedEventArgs e)
+        {
+            ReservationHandler ReservationHandler = new ReservationHandler();
+            AcceptedReservationHandler AcceptedReservationHandler = new AcceptedReservationHandler();
+
+            Reservation res = (Reservation)DGReservations.SelectedItem;
+            AcceptedReservation ares = new AcceptedReservation() { AdminId = currentAdmin.Id, ReservationsId = res.Id };
+            AcceptedReservationHandler.Add(ares);
+            res.Accepted = true;
+            ReservationHandler.Update(res);
+            DGReservations.Items.Refresh();
         }
     }
 }

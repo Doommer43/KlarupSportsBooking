@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="BtnLogin" Content="Log ind" HorizontalAlignment="Left" Margin="31,57,0,0" VerticalAlignment="Top" Width="75" Click="BtnLogin_Click"/>
-        <TextBlock x:Name="TBlockCurrentUser" HorizontalAlignment="Left" Margin="31,36,0,0" TextWrapping="Wrap" Text="Ikke logget ind" VerticalAlignment="Top" Width="116"/>
+        <Button x:Name="BtnLogin" Content="Log ind" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="75" Click="BtnLogin_Click"/>
+        <TextBlock x:Name="TBlockCurrentUser" HorizontalAlignment="Left" Margin="10,34,0,0" TextWrapping="Wrap" Text="Ikke logget ind" VerticalAlignment="Top" Width="111"/>
         <TabControl HorizontalAlignment="Left" Height="420" Margin="126,0,0,0" VerticalAlignment="Top" Width="658">
             <TabItem x:Name="TabUnion" Header="TabItem">
                 <Grid Background="#FFE5E5E5">
@@ -21,7 +21,8 @@
             </TabItem>
             <TabItem x:Name="TabAdmin" Header="TabItem">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="DGReservations" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="375" Margin="254,29,0,0" SelectionChanged="DGReservations_SelectionChanged"/>
+                    <DataGrid x:Name="DGReservations" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="375" Margin="254,29,0,0" SelectionChanged="DGReservations_SelectionChanged" IsReadOnly="True"/>
+                    <Button x:Name="BtnAcceptReservation" Content="Accepter" HorizontalAlignment="Left" Margin="174,29,0,0" VerticalAlignment="Top" Width="75" Click="BtnAcceptReservation_Click"/>
 
                 </Grid>
             </TabItem>

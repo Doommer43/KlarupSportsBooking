@@ -11,7 +11,11 @@ namespace DAHO.KlarupSportsBooking.BusinessLayer
     {
         public Admin Login(string user, string pass)
         {
-            return Model.Admins.Where(a => a.Email == user && a.Password == pass).FirstOrDefault();
+            if(user.Any(a=> a == '@'))
+            {
+                return Model.Admins.Where(a => a.Email == user && a.Password == pass).FirstOrDefault();
+            }
+            throw new ArgumentException("Der er ikke angivet et korrekt brugernavn");
         }
     }
 }

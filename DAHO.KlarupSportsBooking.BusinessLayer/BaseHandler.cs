@@ -12,7 +12,10 @@ namespace DAHO.KlarupSportsBooking.BusinessLayer
         private KlarupHalBookingDBModel model = new KlarupHalBookingDBModel();
 
         protected KlarupHalBookingDBModel Model { get => model; set => model = value; }
-
+        /// <summary>
+        /// Saves changes to the database
+        /// </summary>
+        /// <returns>Returns a bool indicating whether the change(s) was saved. True = saved.</returns>
         public bool SaveChanges()
         {
             int rowsAffected = Model.SaveChanges();

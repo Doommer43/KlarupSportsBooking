@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A89A52D2-D7CA-4AA2-9147-B30AC69B7832}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAHO.KlarupSportsBooking.BusinessLayer</RootNamespace>
-    <AssemblyName>DAHO.KlarupSportsBooking.BusinessLayer</AssemblyName>
+    <ProjectGuid>{C2142379-15D3-47CB-8AF2-3B5F8B4D735A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DAHO.KlarupSportsBooking.Server</RootNamespace>
+    <AssemblyName>DAHO.KlarupSportsBooking.Server</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,25 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcceptedReservationHandler.cs" />
-    <Compile Include="ActivityHandler.cs" />
-    <Compile Include="AdminHandler.cs" />
-    <Compile Include="BaseHandler.cs" />
-    <Compile Include="OpenTimeHandler.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReservationHandler.cs" />
-    <Compile Include="StatisticHandler.cs" />
-    <Compile Include="UnionHandler.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAHO.KlarupSportsBooking.DateAccessLayer\DAHO.KlarupSportsBooking.DateAccessLayer.csproj">
-      <Project>{74aa82cc-e17e-488a-9d7f-13b3bf0a5469}</Project>
-      <Name>DAHO.KlarupSportsBooking.DateAccessLayer</Name>
-    </ProjectReference>
+    <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAHO.KlarupSportsBooking.BusinessLayer\DAHO.KlarupSportsBooking.BusinessLayer.csproj">
+      <Project>{A89A52D2-D7CA-4AA2-9147-B30AC69B7832}</Project>
+      <Name>DAHO.KlarupSportsBooking.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAHO.KlarupSportsBooking.DateAccessLayer\DAHO.KlarupSportsBooking.DateAccessLayer.csproj">
+      <Project>{74AA82CC-E17E-488A-9D7F-13B3BF0A5469}</Project>
+      <Name>DAHO.KlarupSportsBooking.DateAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
