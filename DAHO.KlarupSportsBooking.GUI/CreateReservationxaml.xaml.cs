@@ -34,7 +34,7 @@ namespace DAHO.KlarupSportsBooking.GUI
 
             ComboBoxActivities.ItemsSource = ActivityHandler.GetAllActivities();
 
-            List<(int,int)> times = OpenTimeHandler.DropdownSetterWeekday();
+            List<Tuple<int,int>> times = OpenTimeHandler.DropdownSetterWeekday();
             ComboBoxStartTime.ItemsSource = times;
             ComboBoxEndTime.ItemsSource = times;            
         }
@@ -62,10 +62,10 @@ namespace DAHO.KlarupSportsBooking.GUI
 
         private void BtnAddReservation_Click(object sender, RoutedEventArgs e)
         {
-            (int, int) selectedStartTime = ((int,int))ComboBoxStartTime.SelectedItem;
+            Tuple<int, int> selectedStartTime = (Tuple<int, int>)ComboBoxStartTime.SelectedItem;
             DateTime startTime = new DateTime(1900, 1, 1, selectedStartTime.Item1, selectedStartTime.Item2,0);
 
-            (int, int) selectedEndTime = ((int, int))ComboBoxEndTime.SelectedItem;
+            Tuple<int, int> selectedEndTime = (Tuple<int, int>)ComboBoxEndTime.SelectedItem;
             DateTime endTime = new DateTime(1900, 1, 1, selectedEndTime.Item1, selectedEndTime.Item2, 0);
 
             ReservationTime rt = new ReservationTime() { Date = (DateTime)DTPickerDateOfReservation.SelectedDate, StartTime = startTime, EndTime = endTime };

@@ -26,25 +26,25 @@ namespace DAHO.KlarupSportsBooking.BusinessLayer
             return list;
         }
 
-        public List<(int,int)> DropdownSetterWeekday()
+        public List<Tuple<int,int>> DropdownSetterWeekday()
         {
             OpenTime time = Model.OpenTimes.ToList().LastOrDefault();
-            List<(int,int)> list = new List<(int, int)>() { (time.WeekdayStart.Hour, time.WeekdayStart.Minute) };
+            List<Tuple<int, int>> list = new List<Tuple<int, int>>() { Tuple.Create(time.WeekdayStart.Hour, time.WeekdayStart.Minute) };
             while (time.WeekdayStart.Hour != time.WeekdayEnd.Hour || time.WeekdayStart.Minute != time.WeekdayEnd.Minute)
             {
                 time.WeekdayStart = time.WeekdayStart.AddMinutes(30);
-                list.Add((time.WeekdayStart.Hour, time.WeekdayStart.Minute));                
+                list.Add(Tuple.Create(time.WeekdayStart.Hour, time.WeekdayStart.Minute));                
             } return list;
         }
 
-        public List<(int, int)> DropdownSetterWeekend()
+        public List<Tuple<int, int>> DropdownSetterWeekend()
         {
             OpenTime time = Model.OpenTimes.ToList().LastOrDefault();
-            List<(int, int)> list = new List<(int, int)>() { (time.WeekendStart.Hour, time.WeekendStart.Minute) };
+            List<Tuple<int, int>> list = new List<Tuple<int, int>>() { Tuple.Create(time.WeekendStart.Hour, time.WeekendStart.Minute) };
             while (time.WeekendStart.Hour != time.WeekendEnd.Hour || time.WeekendStart.Minute != time.WeekendEnd.Minute)
             {
                 time.WeekendStart = time.WeekendStart.AddMinutes(30);
-                list.Add((time.WeekendStart.Hour, time.WeekendStart.Minute));
+                list.Add(Tuple.Create(time.WeekendStart.Hour, time.WeekendStart.Minute));
             }
             return list;
         }
